@@ -484,7 +484,18 @@
 // -----------------------------------------------------------------------------
 // SLIDE 5: Vibe Coding Super-Powers
 // -----------------------------------------------------------------------------
-#content-slide("Vibe Coding Super-Powers")[
+#slide[
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[Vibe Coding Super-Powers]
+    #h(0.5em)
+    #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 16pt)[— Limited by Context]
+  ]
+
+  #v(0.6em)
   #grid(
     columns: (1fr, 1fr),
     column-gutter: 2em,
@@ -570,9 +581,8 @@
       [*Vibe Coding 101* #linebreak() #text(fill: text-muted, size: 11pt)[Context is everything]],
       [*How We Use It* #linebreak() #text(fill: text-muted, size: 11pt)[Real-world applications]
         #v(0.3em)
-        #h(0.5em) #text(fill: accent-teal, size: 9pt)[▸] #text(fill: text-muted, size: 9pt)[Prototyping]
-        #h(0.3em) #text(fill: accent-purple, size: 9pt)[▸] #text(fill: text-muted, size: 9pt)[Production]
-        #h(0.3em) #text(fill: accent-pink, size: 9pt)[▸] #text(fill: text-muted, size: 9pt)[Productivity]
+        #h(0.5em) #text(fill: accent-teal, size: 9pt)[▸] #text(fill: text-muted, size: 9pt)[Execution]
+        #h(0.5em) #text(fill: accent-purple, size: 9pt)[▸] #text(fill: text-muted, size: 9pt)[Strategy]
       ],
     )
   ]
@@ -1128,31 +1138,44 @@
 #content-slide("3.2.1 App Prototyping")[
   #text(fill: text-muted, size: 14pt)[Quickly create apps that demonstrate specific functionality]
 
-  #v(0.8em)
+  #v(0.5em)
 
   #grid(
-    columns: (1fr, 1fr),
-    rows: (5cm,),
-    column-gutter: 2em,
+    columns: (1fr, 1fr, 1fr),
+    rows: (4.5cm,),
+    column-gutter: 1em,
     card(
       accent: accent-teal,
       height: 100%,
+      centered: false,
     )[
-      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 18pt)[KROEGEN APP]
-      #v(0.6em)
-      #text(fill: text-body, size: 14pt)[Case study example]
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 14pt)[KROEGEN APP]
       #v(0.4em)
-      #text(fill: text-muted, size: 12pt)[Rapid prototype to validate concept]
+      #text(fill: text-body, size: 12pt)[Case study example]
+      #v(0.3em)
+      #text(fill: text-muted, size: 11pt)[Rapid prototype to validate concept]
     ],
     card(
       accent: accent-purple,
       height: 100%,
+      centered: false,
     )[
-      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 18pt)[MGX LIVE DEMO]
-      #v(0.6em)
-      #text(fill: text-body, size: 14pt)[Real-time demonstration]
-      #v(0.6em)
-      #badge("LIVE")
+      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 14pt)[MGX DOCUMENT EXTRACTION]
+      #v(0.4em)
+      #text(fill: text-body, size: 12pt)[Data extraction from docs]
+      #v(0.3em)
+      #text(fill: text-muted, size: 11pt)[With Landing.ai]
+    ],
+    card(
+      accent: accent-pink,
+      height: 100%,
+      centered: false,
+    )[
+      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 14pt)[MGX VALUATION AGENT]
+      #v(0.4em)
+      #text(fill: text-body, size: 12pt)[Calculate valuations]
+      #v(0.3em)
+      #text(fill: text-muted, size: 11pt)[Built on Claude Agent SDK]
     ],
   )
 ]
