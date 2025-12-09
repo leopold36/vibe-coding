@@ -366,6 +366,22 @@
   )
 }
 
+// Speaker indicator
+#let speaker(..names) = {
+  place(bottom + left)[
+    #block(
+      fill: accent-teal.transparentize(85%),
+      stroke: 1.5pt + accent-teal,
+      inset: (x: 10pt, y: 6pt),
+      radius: 6pt,
+    )[
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[
+        #names.pos().join(" & ")
+      ]
+    ]
+  ]
+}
+
 // =============================================================================
 // PRESENTATION CONTENT
 // =============================================================================
@@ -477,8 +493,19 @@
 // SLIDE 4: Vibe Code Architecture
 // -----------------------------------------------------------------------------
 #slide[
-  #set align(center + horizon)
-  #image("Assets/Vibe code architecture.png", height: 90%)
+  #set align(center)
+  #v(2em)
+  #image("Assets/AI flow.png", height: 80%)
+
+  #place(top + center)[
+    #v(0.3em)
+    #text(
+      font: "JetBrains Mono",
+      size: 28pt,
+      weight: "bold",
+      fill: gradient.linear(accent-purple, accent-teal, angle: 90deg),
+    )[Vibe Coding Technical Architecture]
+  ]
 ]
 
 // -----------------------------------------------------------------------------
@@ -556,6 +583,8 @@
 // SLIDE 6: Agenda
 // -----------------------------------------------------------------------------
 #slide[
+  #speaker("Kilian")
+
   #place(top + right)[
     #box(
       clip: true,
