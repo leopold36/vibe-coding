@@ -91,8 +91,21 @@
 }
 
 // Section divider slide
-#let section-slide(title, icon: none, subtitle: none) = {
+#let section-slide(title, icon: none, subtitle: none, speaker-name: none) = {
   slide[
+    #if speaker-name != none [
+      #place(bottom + left)[
+        #block(
+          fill: accent-teal.transparentize(85%),
+          stroke: 1.5pt + accent-teal,
+          inset: (x: 10pt, y: 6pt),
+          radius: 6pt,
+        )[
+          #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[#speaker-name]
+        ]
+      ]
+    ]
+    
     #set align(center + horizon)
     #block(
       fill: gradient.linear(accent-purple, accent-teal, angle: 90deg),
@@ -118,8 +131,33 @@
 }
 
 // Standard content slide
-#let content-slide(title, body) = {
+#let content-slide(title, body, speaker-name: none, demo-label: none) = {
   slide[
+    #if speaker-name != none [
+      #place(bottom + left)[
+        #block(
+          fill: accent-teal.transparentize(85%),
+          stroke: 1.5pt + accent-teal,
+          inset: (x: 10pt, y: 6pt),
+          radius: 6pt,
+        )[
+          #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[#speaker-name]
+        ]
+      ]
+    ]
+    #if demo-label != none [
+      #place(bottom + left, dx: 140pt)[
+        #block(
+          fill: accent-pink.transparentize(85%),
+          stroke: 1.5pt + accent-pink,
+          inset: (x: 10pt, y: 6pt),
+          radius: 6pt,
+        )[
+          #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 11pt)[Demo: #demo-label]
+        ]
+      ]
+    ]
+
     #block(
       fill: accent-teal.transparentize(90%),
       inset: (x: 12pt, y: 8pt),
@@ -382,6 +420,20 @@
   ]
 }
 
+// Demo/action indicator (positioned next to speaker)
+#let demo(label) = {
+  place(bottom + left, dx: 140pt)[
+    #block(
+      fill: accent-pink.transparentize(85%),
+      stroke: 1.5pt + accent-pink,
+      inset: (x: 10pt, y: 6pt),
+      radius: 6pt,
+    )[
+      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 11pt)[Demo: #label]
+    ]
+  ]
+}
+
 // =============================================================================
 // PRESENTATION CONTENT
 // =============================================================================
@@ -428,29 +480,58 @@
 // SLIDE 2: The Origin - Karpathy Quote
 // -----------------------------------------------------------------------------
 #slide[
-  #set align(center + horizon)
+  #speaker("Leopold")
+
   #grid(
     columns: (auto, 1fr),
-    column-gutter: 2em,
+    column-gutter: 1.5em,
     align: horizon,
     box(
       clip: true,
       radius: 50%,
-      image("Assets/karpathy.jpg", width: 120pt),
+      image("Assets/karpathy.jpg", width: 100pt),
     ),
     block(
       fill: surface,
       stroke: (left: 4pt + accent-purple),
-      inset: 1.5em,
+      inset: 1em,
       radius: 8pt,
     )[
-      #text(fill: text-body, size: 16pt, style: "italic")[
+      #text(fill: text-body, size: 14pt, style: "italic")[
         "There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
       ]
-      #v(0.8em)
-      #text(fill: text-muted, size: 12pt)[— Andrej Karpathy, February 2025]
+      #v(0.5em)
+      #text(fill: text-muted, size: 11pt)[— Andrej Karpathy, February 2025]
+      #v(0.2em)
+      #text(fill: text-muted.lighten(20%), size: 9pt)[Co-founder of OpenAI, former Director of AI at Tesla]
+    ],
+  )
+
+  #v(0.8em)
+
+  #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[WHY HE THINKS AGI IS FAR OUT]
+  #v(0.3em)
+
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 1.5em,
+    [
+      #text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-alert_circle")]
+      #h(0.3em)
+      #text(fill: text-body, size: 11pt)[*Reliability:* Models hallucinate, aren't consistently truthful]
       #v(0.3em)
-      #text(fill: text-muted.lighten(20%), size: 10pt)[Co-founder of OpenAI, former Director of AI at Tesla]
+      #text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-brain")]
+      #h(0.3em)
+      #text(fill: text-body, size: 11pt)[*Memory & Agency:* Poor long-term memory, fragile tool use]
+    ],
+    [
+      #text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-database")]
+      #h(0.3em)
+      #text(fill: text-body, size: 11pt)[*Data:* High-quality feedback is expensive, a bottleneck]
+      #v(0.3em)
+      #text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-shield_check")]
+      #h(0.3em)
+      #text(fill: text-body, size: 11pt)[*Evaluation:* Hard to measure real understanding & safety]
     ],
   )
 ]
@@ -458,7 +539,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 3: Vibe Coding Definition
 // -----------------------------------------------------------------------------
-#content-slide("What is Vibe Coding?")[
+#content-slide("What is Vibe Coding?", speaker-name: "Leopold")[
   #set align(center)
 
   #block(
@@ -493,6 +574,8 @@
 // SLIDE 4: Vibe Code Architecture
 // -----------------------------------------------------------------------------
 #slide[
+  #speaker("Kilian")
+  
   #set align(center)
   #v(2em)
   #image("Assets/AI flow.png", height: 80%)
@@ -512,6 +595,8 @@
 // SLIDE 5: Vibe Coding Super-Powers
 // -----------------------------------------------------------------------------
 #slide[
+  #speaker("Leopold")
+  
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
@@ -583,7 +668,7 @@
 // SLIDE 6: Agenda
 // -----------------------------------------------------------------------------
 #slide[
-  #speaker("Kilian")
+  #speaker("Leopold")
 
   #place(top + right)[
     #box(
@@ -620,7 +705,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 7: Pick Your Playground
 // -----------------------------------------------------------------------------
-#content-slide("1. Pick Your Playground")[
+#content-slide("1. Pick Your Playground", speaker-name: "Leopold & Kilian", demo-label: "Cursor & Claude")[
   #text(fill: text-muted, size: 12pt)[Anywhere we have an interface to communicate with an LLM]
 
   #v(0.3em)
@@ -777,31 +862,65 @@
 // -----------------------------------------------------------------------------
 // SLIDE 8: Vibe Coding 101 - Context is Everything
 // -----------------------------------------------------------------------------
-#content-slide("2. Vibe Coding 101")[
-  #set align(center)
-  #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 14pt)[CONTEXT IS EVERYTHING]
-  #set align(left)
+#slide[
+  #speaker("Kilian")
 
-  #v(0.4em)
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #box[#text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[2. Vibe Coding 101]]
+    #box[#h(0.5em)#text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 16pt)[— context is everything]]
+  ]
+
+  #v(0.3em)
 
   #grid(
-    columns: (1fr, 1fr, 1fr),
-    rows: (2.5cm, 2.5cm),
-    column-gutter: 0.8em,
-    row-gutter: 0.6em,
-    concept-card("AGENTS", "Autonomous AI workers", accent: accent-teal, height: 100%),
-    concept-card("MCP", "Model Context Protocol", accent: accent-purple, height: 100%),
-    concept-card("RULES", "Behavioral guidelines", accent: accent-pink, height: 100%),
-    concept-card("SKILLS", "Reusable capabilities", accent: accent-teal, height: 100%),
-    concept-card("PLAN MODE", "Strategic thinking", accent: accent-purple, height: 100%),
-    concept-card("VOICE", "Conversational interface", accent: accent-pink, height: 100%),
+    columns: (1fr, 2fr),
+    column-gutter: 1em,
+    [
+      #grid(
+        columns: (1fr,),
+        rows: (0.75cm, 0.75cm, 0.75cm, 0.75cm, 0.75cm, 0.75cm),
+        row-gutter: 0.15em,
+        box(width: 100%, height: 100%, block(fill: accent-teal.transparentize(90%), stroke: 1pt + accent-teal.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 9pt)[AGENTS]
+        ]),
+        box(width: 100%, height: 100%, block(fill: accent-purple.transparentize(90%), stroke: 1pt + accent-purple.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 9pt)[MCP]
+        ]),
+        box(width: 100%, height: 100%, block(fill: accent-pink.transparentize(90%), stroke: 1pt + accent-pink.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 9pt)[RULES]
+        ]),
+        box(width: 100%, height: 100%, block(fill: accent-teal.transparentize(90%), stroke: 1pt + accent-teal.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 9pt)[SKILLS]
+        ]),
+        box(width: 100%, height: 100%, block(fill: accent-purple.transparentize(90%), stroke: 1pt + accent-purple.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 9pt)[PLAN MODE]
+        ]),
+        box(width: 100%, height: 100%, block(fill: accent-pink.transparentize(90%), stroke: 1pt + accent-pink.transparentize(50%), inset: 0.3em, radius: 4pt, width: 100%, height: 100%)[
+          #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 9pt)[VOICE]
+        ]),
+      )
+    ],
+    [
+      #box(
+        clip: true,
+        radius: 8pt,
+        width: 100%,
+        height: 11cm,
+      )[
+        #image("Assets/Context.png", width: 100%, height: 100%, fit: "cover")
+      ]
+    ],
   )
 ]
 
 // -----------------------------------------------------------------------------
 // SLIDE 9: Agents
 // -----------------------------------------------------------------------------
-#content-slide("2.1 Agents")[
+#content-slide("2.1 Agents", speaker-name: "Kilian")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[CONNECTION + SYSTEM PROMPT]
 
   #v(0.5em)
@@ -848,7 +967,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 10: Skills
 // -----------------------------------------------------------------------------
-#content-slide("2.2 Skills")[
+#content-slide("2.2 Skills", speaker-name: "Leopold")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[REUSABLE INSTRUCTIONS]
 
   #v(0.5em)
@@ -893,7 +1012,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 11: MCP (Model Context Protocol)
 // -----------------------------------------------------------------------------
-#content-slide("2.3 MCP")[
+#content-slide("2.3 MCP", speaker-name: "Kilian")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[CONNECT TO EVERYTHING]
 
   #v(0.5em)
@@ -938,7 +1057,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 12: Plan Mode
 // -----------------------------------------------------------------------------
-#content-slide("2.4 Plan Mode")[
+#content-slide("2.4 Plan Mode", speaker-name: "Kilian")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[THINK BEFORE YOU ACT]
 
   #v(0.5em)
@@ -984,7 +1103,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 13: Rules
 // -----------------------------------------------------------------------------
-#content-slide("2.5 Rules")[
+#content-slide("2.5 Rules", speaker-name: "Kilian")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[BOUNDARIES & GUIDELINES]
 
   #v(0.5em)
@@ -1029,7 +1148,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 14: Voice
 // -----------------------------------------------------------------------------
-#content-slide("2.6 Voice")[
+#content-slide("2.6 Voice", speaker-name: "Kilian")[
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[NATURAL EXPRESSION]
 
   #v(0.5em)
@@ -1074,12 +1193,12 @@
 // -----------------------------------------------------------------------------
 // SLIDE 15: How Does Vibe Coding Create Value?
 // -----------------------------------------------------------------------------
-#section-slide("3. How We Use It", icon: "nf-md-rocket_launch", subtitle: "Real-world applications")
+#section-slide("3. How We Use It", icon: "nf-md-rocket_launch", subtitle: "Real-world applications", speaker-name: "Kilian & Leopold")
 
 // -----------------------------------------------------------------------------
 // SLIDE 10: Value Creation Overview
 // -----------------------------------------------------------------------------
-#content-slide("Value Creation")[
+#content-slide("Value Creation", speaker-name: "Kilian & Leopold")[
   #v(1em)
 
   #grid(
@@ -1128,12 +1247,12 @@
 // -----------------------------------------------------------------------------
 // SLIDE 11: EXECUTION Section Divider
 // -----------------------------------------------------------------------------
-#section-slide("3.1 Execution", icon: "nf-md-cog")
+#section-slide("3.1 Execution", icon: "nf-md-cog", speaker-name: "Kilian")
 
 // -----------------------------------------------------------------------------
 // SLIDE 12: Ping Pong Development
 // -----------------------------------------------------------------------------
-#content-slide("3.1.1 Ping Pong Development")[
+#content-slide("3.1.1 Ping Pong Development", speaker-name: "Kilian")[
   #grid(
     columns: (1fr, 1fr),
     column-gutter: 2em,
@@ -1159,12 +1278,12 @@
 // -----------------------------------------------------------------------------
 // SLIDE 13: STRATEGY Section Divider
 // -----------------------------------------------------------------------------
-#section-slide("3.2 Strategy", icon: "nf-md-brain")
+#section-slide("3.2 Strategy", icon: "nf-md-brain", speaker-name: "Leopold")
 
 // -----------------------------------------------------------------------------
 // SLIDE 14: App Prototyping
 // -----------------------------------------------------------------------------
-#content-slide("3.2.1 App Prototyping")[
+#content-slide("3.2.1 App Prototyping", speaker-name: "Leopold & Kilian", demo-label: "Various Apps")[
   #text(fill: text-muted, size: 14pt)[Quickly create apps that demonstrate specific functionality]
 
   #v(0.5em)
@@ -1178,11 +1297,13 @@
       height: 100%,
       centered: false,
     )[
-      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 14pt)[KROEGEN APP]
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 14pt)[MGX VALUATION AGENT]
       #v(0.4em)
-      #text(fill: text-body, size: 12pt)[Case study example]
+      #text(fill: text-body, size: 12pt)[Calculate valuations]
       #v(0.3em)
-      #text(fill: text-muted, size: 11pt)[Rapid prototype to validate concept]
+      #text(fill: text-muted, size: 11pt)[Built on Claude Agent SDK]
+      #v(0.3em)
+      #text(fill: text-muted, size: 9pt)[Vite · Electron · SQLite]
     ],
     card(
       accent: accent-purple,
@@ -1194,17 +1315,19 @@
       #text(fill: text-body, size: 12pt)[Data extraction from docs]
       #v(0.3em)
       #text(fill: text-muted, size: 11pt)[With Landing.ai]
+      #v(0.3em)
+      #text(fill: text-muted, size: 9pt)[Vite · Electron · SQLite]
     ],
     card(
       accent: accent-pink,
       height: 100%,
       centered: false,
     )[
-      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 14pt)[MGX VALUATION AGENT]
+      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 14pt)[KROEGEN APP]
       #v(0.4em)
-      #text(fill: text-body, size: 12pt)[Calculate valuations]
+      #text(fill: text-body, size: 12pt)[Case study example]
       #v(0.3em)
-      #text(fill: text-muted, size: 11pt)[Built on Claude Agent SDK]
+      #text(fill: text-muted, size: 11pt)[Rapid prototype to validate concept]
     ],
   )
 ]
@@ -1212,7 +1335,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 15: Productivity
 // -----------------------------------------------------------------------------
-#content-slide("3.2.2 Productivity")[
+#content-slide("3.2.2 Productivity", speaker-name: "Leopold")[
   #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 14pt)[KNOWLEDGE MANAGEMENT]
 
   #v(0.5em)
@@ -1250,7 +1373,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 16: Report Generation
 // -----------------------------------------------------------------------------
-#content-slide("3.2.3 Report Generation")[
+#content-slide("3.2.3 Report Generation", speaker-name: "Leopold")[
   #grid(
     columns: (1fr, 1fr),
     rows: (5cm,),
