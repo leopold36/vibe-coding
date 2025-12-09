@@ -434,6 +434,16 @@
   ]
 }
 
+// Breadcrumb navigation (top-right, doesn't affect layout)
+#let breadcrumb(section, subsection: none) = {
+  place(top + right)[
+    #text(fill: text-muted, font: "JetBrains Mono", size: 12pt)[
+      #section
+      #if subsection != none [ > #subsection]
+    ]
+  ]
+}
+
 // =============================================================================
 // PRESENTATION CONTENT
 // =============================================================================
@@ -481,6 +491,7 @@
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Leopold")
+  #breadcrumb("Intro")
 
   #grid(
     columns: (auto, 1fr),
@@ -540,6 +551,7 @@
 // SLIDE 3: Vibe Coding Definition
 // -----------------------------------------------------------------------------
 #content-slide("What is Vibe Coding?", speaker-name: "Leopold")[
+  #breadcrumb("Intro")
   #set align(center)
 
   #block(
@@ -575,7 +587,8 @@
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Kilian")
-  
+  #breadcrumb("Intro")
+
   #set align(center)
   #v(2em)
   #image("Assets/AI flow.png", height: 80%)
@@ -596,7 +609,8 @@
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Leopold")
-  
+  #breadcrumb("Intro")
+
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
@@ -669,6 +683,7 @@
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Leopold")
+  #breadcrumb("Intro")
 
   #place(top + right)[
     #box(
@@ -706,6 +721,7 @@
 // SLIDE 7: Pick Your Playground
 // -----------------------------------------------------------------------------
 #content-slide("1. Pick Your Playground", speaker-name: "Leopold & Kilian", demo-label: "Cursor & Claude")[
+  #breadcrumb("1. Playground")
   #text(fill: text-muted, size: 12pt)[Anywhere we have an interface to communicate with an LLM]
 
   #v(0.3em)
@@ -921,6 +937,7 @@
 // SLIDE 9: Agents
 // -----------------------------------------------------------------------------
 #content-slide("2.1 Agents", speaker-name: "Kilian")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "Agents")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[CONNECTION + SYSTEM PROMPT]
 
   #v(0.5em)
@@ -962,12 +979,27 @@
 
   #v(0.5em)
   #info-box([*Example:* Claude Code agent that reads files, writes code, runs tests, and iterates until complete], type: "tip")
+
+  #v(0.3em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-purple),
+    inset: 1em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 12pt, style: "italic")["Agents are brilliant, but they miss expertise."]
+    #h(1em)
+    #text(fill: text-muted, size: 10pt)[— Anthropic]
+  ]
 ]
 
 // -----------------------------------------------------------------------------
 // SLIDE 10: Skills
 // -----------------------------------------------------------------------------
 #content-slide("2.2 Skills", speaker-name: "Leopold")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "Skills")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[REUSABLE INSTRUCTIONS]
 
   #v(0.5em)
@@ -1010,9 +1042,45 @@
 ]
 
 // -----------------------------------------------------------------------------
+// SLIDE 10b: Skills Examples
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Leopold")
+  #breadcrumb("2. Vibe Coding 101", subsection: "Skills")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[2.2 Skills]
+    #h(0.5em)
+    #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 16pt)[— Anthropic's Big Bet]
+  ]
+
+  #v(0.5em)
+
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 1em,
+    [
+      #box(radius: 8pt, width: 100%, height: 10cm)[
+        #image("Assets/Skills 1.png", width: 100%, height: 100%, fit: "contain")
+      ]
+    ],
+    [
+      #box(radius: 8pt, width: 100%, height: 10cm)[
+        #image("Assets/Skills 2.png", width: 100%, height: 100%, fit: "contain")
+      ]
+    ],
+  )
+]
+
+// -----------------------------------------------------------------------------
 // SLIDE 11: MCP (Model Context Protocol)
 // -----------------------------------------------------------------------------
 #content-slide("2.3 MCP", speaker-name: "Kilian")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "MCP")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[CONNECT TO EVERYTHING]
 
   #v(0.5em)
@@ -1057,7 +1125,8 @@
 // -----------------------------------------------------------------------------
 // SLIDE 12: Plan Mode
 // -----------------------------------------------------------------------------
-#content-slide("2.4 Plan Mode", speaker-name: "Kilian")[
+#content-slide("2.4 Plan Mode", speaker-name: "Leopold")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "Plan Mode")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[THINK BEFORE YOU ACT]
 
   #v(0.5em)
@@ -1104,6 +1173,7 @@
 // SLIDE 13: Rules
 // -----------------------------------------------------------------------------
 #content-slide("2.5 Rules", speaker-name: "Kilian")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "Rules")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[BOUNDARIES & GUIDELINES]
 
   #v(0.5em)
@@ -1148,7 +1218,8 @@
 // -----------------------------------------------------------------------------
 // SLIDE 14: Voice
 // -----------------------------------------------------------------------------
-#content-slide("2.6 Voice", speaker-name: "Kilian")[
+#content-slide("2.6 Voice", speaker-name: "Leopold")[
+  #breadcrumb("2. Vibe Coding 101", subsection: "Voice")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[NATURAL EXPRESSION]
 
   #v(0.5em)
@@ -1196,9 +1267,10 @@
 #section-slide("3. How We Use It", icon: "nf-md-rocket_launch", subtitle: "Real-world applications", speaker-name: "Kilian & Leopold")
 
 // -----------------------------------------------------------------------------
-// SLIDE 10: Value Creation Overview
+// SLIDE 16: Value Creation Overview
 // -----------------------------------------------------------------------------
 #content-slide("Value Creation", speaker-name: "Kilian & Leopold")[
+  #breadcrumb("3. How We Use It")
   #v(1em)
 
   #grid(
@@ -1219,8 +1291,6 @@
         #text(fill: bg-dark, size: 32pt)[#nf-icon("nf-md-cog")]
         #v(0.5em)
         #text(fill: bg-dark, weight: "bold", font: "JetBrains Mono", size: 20pt)[EXECUTION]
-        #v(0.3em)
-        #text(fill: bg-dark.lighten(20%), size: 14pt)[Kilian]
       ]
     ),
     box(
@@ -1237,22 +1307,21 @@
         #text(fill: bg-dark, size: 32pt)[#nf-icon("nf-md-brain")]
         #v(0.5em)
         #text(fill: bg-dark, weight: "bold", font: "JetBrains Mono", size: 20pt)[STRATEGY]
-        #v(0.3em)
-        #text(fill: bg-dark.lighten(20%), size: 14pt)[Leo]
       ]
     ),
   )
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 11: EXECUTION Section Divider
+// SLIDE 17: EXECUTION Section Divider
 // -----------------------------------------------------------------------------
 #section-slide("3.1 Execution", icon: "nf-md-cog", speaker-name: "Kilian")
 
 // -----------------------------------------------------------------------------
-// SLIDE 12: Ping Pong Development
+// SLIDE 18: Ping Pong Development
 // -----------------------------------------------------------------------------
 #content-slide("3.1.1 Ping Pong Development", speaker-name: "Kilian")[
+  #breadcrumb("3.1 Execution", subsection: "Ping Pong")
   #grid(
     columns: (1fr, 1fr),
     column-gutter: 2em,
@@ -1276,14 +1345,392 @@
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 13: STRATEGY Section Divider
+// SLIDE 19: Ping Pong: Het Doel
 // -----------------------------------------------------------------------------
-#section-slide("3.2 Strategy", icon: "nf-md-brain", speaker-name: "Leopold")
+#slide[
+  #speaker("Kilian")
+  #breadcrumb("3.1 Execution", subsection: "Het Doel")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.2 Ping Pong: Het Doel]
+  ]
+
+  #v(0.5em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-purple),
+    inset: 1em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 16pt, style: "italic")["Je wordt een manager, niet een typist."]
+  ]
+
+  #v(0.8em)
+
+  // Flow diagram
+  #set align(center)
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto),
+    column-gutter: 0.5em,
+    align: horizon,
+    block(
+      fill: accent-teal.transparentize(80%),
+      stroke: 1pt + accent-teal,
+      inset: 0.8em,
+      radius: 6pt,
+    )[
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[Jij: Geef opdracht]
+    ],
+    text(fill: accent-teal, size: 16pt)[→],
+    block(
+      fill: accent-purple.transparentize(80%),
+      stroke: 1pt + accent-purple,
+      inset: 0.8em,
+      radius: 6pt,
+    )[
+      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 11pt)[AI: Codeert]
+    ],
+    text(fill: accent-purple, size: 16pt)[→],
+    block(
+      fill: accent-purple.transparentize(80%),
+      stroke: 1pt + accent-purple,
+      inset: 0.8em,
+      radius: 6pt,
+    )[
+      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 11pt)[AI: Lint/Test]
+    ],
+    text(fill: accent-pink, size: 16pt)[→],
+    block(
+      fill: accent-pink.transparentize(80%),
+      stroke: 1pt + accent-pink,
+      inset: 0.8em,
+      radius: 6pt,
+    )[
+      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 11pt)[Jij: Review]
+    ],
+  )
+  #set align(left)
+
+  #v(0.8em)
+
+  #cyber-list(
+    [*Vibe coding* = van executor naar PO/reviewer rol],
+    [*Coding* is input → output → hoe ze linken. Tests dekken de business requirement.],
+    [*Explainability is control* — je moet kunnen uitleggen wat de AI gaat doen],
+  )
+]
 
 // -----------------------------------------------------------------------------
-// SLIDE 14: App Prototyping
+// SLIDE 20: Ping Pong: De Beperking
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Kilian")
+  #breadcrumb("3.1 Execution", subsection: "De Beperking")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.3 Ping Pong: De Beperking]
+  ]
+
+  #v(0.5em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-pink),
+    inset: 1em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 16pt, style: "italic")["De AI is een runaway train. Jij bedient de remmen."]
+  ]
+
+  #v(0.8em)
+
+  #cyber-list(
+    [*LLMs mimic, they don't understand logic* — ze herkennen patronen, geen echte logica],
+    [*LLMs will puke code if you let them* — zonder controle krijg je een chaos],
+    [*Keep your foot on the brake* — Accept / Commit / Revert],
+    [*Houd gesprekken gefocust* — start nieuwe chat bij nieuw onderwerp],
+  )
+]
+
+// -----------------------------------------------------------------------------
+// SLIDE 21: Ping Pong: De Setup
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Kilian")
+  #breadcrumb("3.1 Execution", subsection: "De Setup")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.4 Ping Pong: De Setup]
+  ]
+
+  #v(0.3em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-purple),
+    inset: 0.8em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 14pt, style: "italic")["Je setup bepaalt of de AI kan slagen."]
+  ]
+
+  #v(0.5em)
+
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 1.5em,
+    [
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[BENEFITS]
+      #v(0.3em)
+      #grid(
+        columns: (auto, 1fr),
+        column-gutter: 0.4em,
+        row-gutter: 0.25em,
+        text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*UV* — één config file → alles consistent],
+        text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*Linters* — AI krijgt directe feedback op fouten],
+        text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*Cursor Rules* — shortcuts → AI weet hoe te testen],
+        text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*.env files* — local vs live switching],
+        text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*Extensions* — alles binnen Cursor],
+      )
+    ],
+    [
+      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 11pt)[TOOLS]
+      #v(0.3em)
+      #grid(
+        columns: (auto, 1fr),
+        column-gutter: 0.4em,
+        row-gutter: 0.25em,
+        text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*Context7 MCP* — up-to-date docs en best practices],
+        text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-chevron_right")],
+        text(fill: text-body, size: 11pt)[*Jira MCP* — requirements lezen],
+      )
+    ],
+  )
+]
+
+// -----------------------------------------------------------------------------
+// SLIDE 22: Ping Pong: De Principes
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Kilian")
+  #breadcrumb("3.1 Execution", subsection: "De Principes")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.5 Ping Pong: De Principes]
+  ]
+
+  #v(0.3em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-purple),
+    inset: 0.8em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 14pt, style: "italic")["Dit is waar je als reviewer op focust."]
+  ]
+
+  #v(0.5em)
+
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 1.5em,
+    [
+      #cyber-list(
+        [*DRY is THE principle* — building blocks, separation of concerns],
+        [*Append, don't modify* — nieuwe functies toevoegen, niet bestaande aanpassen],
+        [*Scenario-based testing* — niet class-based, direct van requirements naar tests],
+      )
+    ],
+    [
+      #cyber-list(
+        [*Setup close to real situation* — geen test-only logic in productie code],
+        [*Show don't tell* — geef voorbeeld files om te volgen],
+        [*Keep what you use, delete the rest*],
+      )
+    ],
+  )
+]
+
+// -----------------------------------------------------------------------------
+// SLIDE 23: Ping Pong: Review Checklist
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Kilian")
+  #breadcrumb("3.1 Execution", subsection: "Review Checklist")
+
+  #block(
+    fill: accent-teal.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.6 Ping Pong: Review Checklist]
+  ]
+
+  #v(0.3em)
+
+  #block(
+    fill: surface,
+    stroke: (left: 4pt + accent-purple),
+    inset: 0.8em,
+    radius: 8pt,
+    width: 100%,
+  )[
+    #text(fill: text-body, size: 14pt, style: "italic")["Dit check ik elke keer."]
+  ]
+
+  #v(0.6em)
+
+  #grid(
+    columns: (auto, 1fr),
+    column-gutter: 0.6em,
+    row-gutter: 0.5em,
+    box(
+      fill: accent-teal.transparentize(80%),
+      stroke: 1pt + accent-teal,
+      inset: 6pt,
+      radius: 4pt,
+    )[#text(fill: accent-teal, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
+    text(fill: text-body, size: 13pt)[Heeft hij *NIEUWE* functies toegevoegd of *BESTAANDE* gewijzigd?],
+
+    box(
+      fill: accent-purple.transparentize(80%),
+      stroke: 1pt + accent-purple,
+      inset: 6pt,
+      radius: 4pt,
+    )[#text(fill: accent-purple, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
+    text(fill: text-body, size: 13pt)[Vangt hij exceptions in plaats van ze te throwen?],
+
+    box(
+      fill: accent-pink.transparentize(80%),
+      stroke: 1pt + accent-pink,
+      inset: 6pt,
+      radius: 4pt,
+    )[#text(fill: accent-pink, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
+    text(fill: text-body, size: 13pt)[Zit er test-only logic in productie code?],
+
+    box(
+      fill: accent-teal.transparentize(80%),
+      stroke: 1pt + accent-teal,
+      inset: 6pt,
+      radius: 4pt,
+    )[#text(fill: accent-teal, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
+    text(fill: text-body, size: 13pt)[Doet één functie te veel?],
+
+    box(
+      fill: accent-purple.transparentize(80%),
+      stroke: 1pt + accent-purple,
+      inset: 6pt,
+      radius: 4pt,
+    )[#text(fill: accent-purple, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
+    text(fill: text-body, size: 13pt)[Kan ik het pad E2E uitleggen?],
+  )
+]
+
+// -----------------------------------------------------------------------------
+// SLIDE 24: DEMO - Ping Pong Live
+// -----------------------------------------------------------------------------
+#slide[
+  #speaker("Kilian")
+  #demo("Ping Pong Live")
+  #breadcrumb("3.1 Execution", subsection: "Demo")
+
+  #block(
+    fill: accent-pink.transparentize(90%),
+    inset: (x: 12pt, y: 8pt),
+    width: 100%,
+  )[
+    #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 20pt)[DEMO: Ping Pong Live]
+  ]
+
+  #v(0.3em)
+
+  #grid(
+    columns: (1.4fr, 1fr),
+    column-gutter: 1em,
+    [
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 10pt)[DE FLOW]
+      #v(0.2em)
+      #grid(
+        columns: (auto, 1fr),
+        column-gutter: 0.4em,
+        row-gutter: 0.15em,
+        text(fill: accent-teal, weight: "bold", size: 9pt)[1.],
+        text(fill: text-body, size: 9pt)[*Jira MCP* → story + requirements lezen],
+        text(fill: accent-teal, weight: "bold", size: 9pt)[2.],
+        text(fill: text-body, size: 9pt)[*Context geven* → tests, code/services, voorbeelden],
+        text(fill: accent-teal, weight: "bold", size: 9pt)[3.],
+        text(fill: text-body, size: 9pt)[*Extra info* → API docs, etc.],
+        text(fill: accent-teal, weight: "bold", size: 9pt)[4.],
+        text(fill: text-body, size: 9pt)[*Context7 MCP* → best practices (als nodig)],
+        text(fill: accent-teal, weight: "bold", size: 9pt)[5.],
+        text(fill: text-body, size: 9pt)[*Test scenario* → "Hoe toon ik dat dit werkt?"],
+        text(fill: accent-purple, weight: "bold", size: 9pt)[6.],
+        text(fill: text-body, size: 9pt)[*Vraag implementatie* → `uv run pytest`],
+        text(fill: accent-purple, weight: "bold", size: 9pt)[7.],
+        text(fill: text-body, size: 9pt)[*AI werkt* → code → lint → fix → test → groen ✓],
+        text(fill: accent-pink, weight: "bold", size: 9pt)[8.],
+        text(fill: text-body, size: 9pt)[*Review* → checklist doorlopen],
+        text(fill: accent-pink, weight: "bold", size: 9pt)[9.],
+        text(fill: text-body, size: 9pt)[*Commit* → met duidelijke message],
+        text(fill: accent-pink, weight: "bold", size: 9pt)[10.],
+        text(fill: text-body, size: 9pt)[*Deploy* → .env switch naar live],
+      )
+    ],
+    [
+      #v(1em)
+      #block(
+        fill: accent-pink.transparentize(85%),
+        stroke: 1pt + accent-pink,
+        inset: 0.8em,
+        radius: 6pt,
+        width: 100%,
+      )[
+        #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 10pt)[ALS HET MISGAAT]
+        #v(0.3em)
+        #text(fill: text-body, size: 10pt)[Ga terug in chat history, probeer opnieuw met andere instructies.]
+      ]
+    ],
+  )
+]
+
+// -----------------------------------------------------------------------------
+// SLIDE 25: STRATEGY Section Divider
+// -----------------------------------------------------------------------------
+#section-slide("3.2 Strategy", icon: "nf-md-brain", speaker-name: "Leopold & Kilian")
+
+// -----------------------------------------------------------------------------
+// SLIDE 26: App Prototyping
 // -----------------------------------------------------------------------------
 #content-slide("3.2.1 App Prototyping", speaker-name: "Leopold & Kilian", demo-label: "Various Apps")[
+  #breadcrumb("3.2 Strategy", subsection: "App Prototyping")
   #text(fill: text-muted, size: 14pt)[Quickly create apps that demonstrate specific functionality]
 
   #v(0.5em)
@@ -1333,9 +1780,10 @@
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 15: Productivity
+// SLIDE 27: Productivity
 // -----------------------------------------------------------------------------
-#content-slide("3.2.2 Productivity", speaker-name: "Leopold")[
+#content-slide("3.2.2 Productivity", speaker-name: "Kilian", demo-label: "Obsidian")[
+  #breadcrumb("3.2 Strategy", subsection: "Productivity")
   #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 14pt)[KNOWLEDGE MANAGEMENT]
 
   #v(0.5em)
@@ -1371,9 +1819,10 @@
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 16: Report Generation
+// SLIDE 28: Report Generation
 // -----------------------------------------------------------------------------
 #content-slide("3.2.3 Report Generation", speaker-name: "Leopold")[
+  #breadcrumb("3.2 Strategy", subsection: "Report Generation")
   #grid(
     columns: (1fr, 1fr),
     rows: (5cm,),
