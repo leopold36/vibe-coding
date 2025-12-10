@@ -998,7 +998,7 @@
 // -----------------------------------------------------------------------------
 // SLIDE 10: Skills
 // -----------------------------------------------------------------------------
-#content-slide("2.2 Skills", speaker-name: "Leopold")[
+#content-slide("2.2.1 Skills", speaker-name: "Leopold")[
   #breadcrumb("2. Vibe Coding 101", subsection: "Skills")
   #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 12pt)[REUSABLE INSTRUCTIONS]
 
@@ -1053,7 +1053,7 @@
     inset: (x: 12pt, y: 8pt),
     width: 100%,
   )[
-    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[2.2 Skills]
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[2.2.2 Skills]
     #h(0.5em)
     #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 16pt)[— Anthropic's Big Bet]
   ]
@@ -1345,18 +1345,18 @@
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 19: Ping Pong: Het Doel
+// SLIDE 19: Ping Pong: The Goal
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Kilian")
-  #breadcrumb("3.1 Execution", subsection: "Het Doel")
+  #breadcrumb("3.1 Execution", subsection: "The Goal")
 
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
     width: 100%,
   )[
-    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.2 Ping Pong: Het Doel]
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.2 Ping Pong: The Goal]
   ]
 
   #v(0.5em)
@@ -1368,7 +1368,7 @@
     radius: 8pt,
     width: 100%,
   )[
-    #text(fill: text-body, size: 16pt, style: "italic")["Je wordt een manager, niet een typist."]
+    #text(fill: text-body, size: 16pt, style: "italic")["You become a manager, not a typist."]
   ]
 
   #v(0.8em)
@@ -1385,7 +1385,7 @@
       inset: 0.8em,
       radius: 6pt,
     )[
-      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[Jij: Geef opdracht]
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 11pt)[You: Give instructions]
     ],
     text(fill: accent-teal, size: 16pt)[→],
     block(
@@ -1394,7 +1394,7 @@
       inset: 0.8em,
       radius: 6pt,
     )[
-      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 11pt)[AI: Codeert]
+      #text(fill: accent-purple, weight: "bold", font: "JetBrains Mono", size: 11pt)[AI: Codes]
     ],
     text(fill: accent-purple, size: 16pt)[→],
     block(
@@ -1412,7 +1412,7 @@
       inset: 0.8em,
       radius: 6pt,
     )[
-      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 11pt)[Jij: Review]
+      #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 11pt)[You: Review]
     ],
   )
   #set align(left)
@@ -1420,25 +1420,25 @@
   #v(0.8em)
 
   #cyber-list(
-    [*Vibe coding* = van executor naar PO/reviewer rol],
-    [*Coding* is input → output → hoe ze linken. Tests dekken de business requirement.],
-    [*Explainability is control* — je moet kunnen uitleggen wat de AI gaat doen],
+    [*Vibe coding* = from executor to PO/reviewer role],
+    [*Coding* is input → output → how they link. Tests cover the business requirement.],
+    [*Explainability is control* — you must be able to explain what the AI will do],
   )
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 20: Ping Pong: De Beperking
+// SLIDE 20: Ping Pong: The Limitation
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Kilian")
-  #breadcrumb("3.1 Execution", subsection: "De Beperking")
+  #breadcrumb("3.1 Execution", subsection: "The Limitation")
 
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
     width: 100%,
   )[
-    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.3 Ping Pong: De Beperking]
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.3 Ping Pong: The Limitation]
   ]
 
   #v(0.5em)
@@ -1450,32 +1450,32 @@
     radius: 8pt,
     width: 100%,
   )[
-    #text(fill: text-body, size: 16pt, style: "italic")["De AI is een runaway train. Jij bedient de remmen."]
+    #text(fill: text-body, size: 16pt, style: "italic")["The AI is a runaway train. You operate the brakes."]
   ]
 
   #v(0.8em)
 
   #cyber-list(
-    [*LLMs mimic, they don't understand logic* — ze herkennen patronen, geen echte logica],
-    [*LLMs will puke code if you let them* — zonder controle krijg je een chaos],
+    [*LLMs mimic, they don't understand logic* — they recognize patterns, not real logic],
+    [*LLMs will puke code if you let them* — without control you get chaos],
     [*Keep your foot on the brake* — Accept / Commit / Revert],
-    [*Houd gesprekken gefocust* — start nieuwe chat bij nieuw onderwerp],
+    [*Keep conversations focused* — start a new chat for a new topic],
   )
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 21: Ping Pong: De Setup
+// SLIDE 21: Ping Pong: The Setup
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Kilian")
-  #breadcrumb("3.1 Execution", subsection: "De Setup")
+  #breadcrumb("3.1 Execution", subsection: "The Setup")
 
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
     width: 100%,
   )[
-    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.4 Ping Pong: De Setup]
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.4 Ping Pong: The Setup]
   ]
 
   #v(0.3em)
@@ -1487,7 +1487,7 @@
     radius: 8pt,
     width: 100%,
   )[
-    #text(fill: text-body, size: 14pt, style: "italic")["Je setup bepaalt of de AI kan slagen."]
+    #text(fill: text-body, size: 14pt, style: "italic")["Your setup determines if the AI can succeed."]
   ]
 
   #v(0.5em)
@@ -1503,15 +1503,15 @@
         column-gutter: 0.4em,
         row-gutter: 0.25em,
         text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*UV* — één config file → alles consistent],
+        text(fill: text-body, size: 11pt)[*UV* — one config file → everything consistent],
         text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*Linters* — AI krijgt directe feedback op fouten],
+        text(fill: text-body, size: 11pt)[*Linters* — AI gets direct feedback on errors],
         text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*Cursor Rules* — shortcuts → AI weet hoe te testen],
+        text(fill: text-body, size: 11pt)[*Cursor Rules* — shortcuts → AI knows how to test],
         text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
         text(fill: text-body, size: 11pt)[*.env files* — local vs live switching],
         text(fill: accent-teal, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*Extensions* — alles binnen Cursor],
+        text(fill: text-body, size: 11pt)[*Extensions* — everything within Cursor],
       )
     ],
     [
@@ -1522,27 +1522,27 @@
         column-gutter: 0.4em,
         row-gutter: 0.25em,
         text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*Context7 MCP* — up-to-date docs en best practices],
+        text(fill: text-body, size: 11pt)[*Context7 MCP* — up-to-date docs and best practices],
         text(fill: accent-purple, size: 10pt)[#nf-icon("nf-md-chevron_right")],
-        text(fill: text-body, size: 11pt)[*Jira MCP* — requirements lezen],
+        text(fill: text-body, size: 11pt)[*Jira MCP* — read requirements],
       )
     ],
   )
 ]
 
 // -----------------------------------------------------------------------------
-// SLIDE 22: Ping Pong: De Principes
+// SLIDE 22: Ping Pong: The Principles
 // -----------------------------------------------------------------------------
 #slide[
   #speaker("Kilian")
-  #breadcrumb("3.1 Execution", subsection: "De Principes")
+  #breadcrumb("3.1 Execution", subsection: "The Principles")
 
   #block(
     fill: accent-teal.transparentize(90%),
     inset: (x: 12pt, y: 8pt),
     width: 100%,
   )[
-    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.5 Ping Pong: De Principes]
+    #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 20pt)[3.1.5 Ping Pong: The Principles]
   ]
 
   #v(0.3em)
@@ -1554,7 +1554,7 @@
     radius: 8pt,
     width: 100%,
   )[
-    #text(fill: text-body, size: 14pt, style: "italic")["Dit is waar je als reviewer op focust."]
+    #text(fill: text-body, size: 14pt, style: "italic")["This is what you focus on as a reviewer."]
   ]
 
   #v(0.5em)
@@ -1565,14 +1565,14 @@
     [
       #cyber-list(
         [*DRY is THE principle* — building blocks, separation of concerns],
-        [*Append, don't modify* — nieuwe functies toevoegen, niet bestaande aanpassen],
-        [*Scenario-based testing* — niet class-based, direct van requirements naar tests],
+        [*Append, don't modify* — add new functions, don't modify existing ones],
+        [*Scenario-based testing* — not class-based, directly from requirements to tests],
       )
     ],
     [
       #cyber-list(
-        [*Setup close to real situation* — geen test-only logic in productie code],
-        [*Show don't tell* — geef voorbeeld files om te volgen],
+        [*Setup close to real situation* — no test-only logic in production code],
+        [*Show don't tell* — provide example files to follow],
         [*Keep what you use, delete the rest*],
       )
     ],
@@ -1603,7 +1603,7 @@
     radius: 8pt,
     width: 100%,
   )[
-    #text(fill: text-body, size: 14pt, style: "italic")["Dit check ik elke keer."]
+    #text(fill: text-body, size: 14pt, style: "italic")["I check this every time."]
   ]
 
   #v(0.6em)
@@ -1618,7 +1618,7 @@
       inset: 6pt,
       radius: 4pt,
     )[#text(fill: accent-teal, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
-    text(fill: text-body, size: 13pt)[Heeft hij *NIEUWE* functies toegevoegd of *BESTAANDE* gewijzigd?],
+    text(fill: text-body, size: 13pt)[Did it add *NEW* functions or modify *EXISTING* ones?],
 
     box(
       fill: accent-purple.transparentize(80%),
@@ -1626,7 +1626,7 @@
       inset: 6pt,
       radius: 4pt,
     )[#text(fill: accent-purple, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
-    text(fill: text-body, size: 13pt)[Vangt hij exceptions in plaats van ze te throwen?],
+    text(fill: text-body, size: 13pt)[Does it catch exceptions instead of throwing them?],
 
     box(
       fill: accent-pink.transparentize(80%),
@@ -1634,7 +1634,7 @@
       inset: 6pt,
       radius: 4pt,
     )[#text(fill: accent-pink, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
-    text(fill: text-body, size: 13pt)[Zit er test-only logic in productie code?],
+    text(fill: text-body, size: 13pt)[Is there test-only logic in production code?],
 
     box(
       fill: accent-teal.transparentize(80%),
@@ -1642,7 +1642,7 @@
       inset: 6pt,
       radius: 4pt,
     )[#text(fill: accent-teal, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
-    text(fill: text-body, size: 13pt)[Doet één functie te veel?],
+    text(fill: text-body, size: 13pt)[Does one function do too much?],
 
     box(
       fill: accent-purple.transparentize(80%),
@@ -1650,7 +1650,7 @@
       inset: 6pt,
       radius: 4pt,
     )[#text(fill: accent-purple, size: 12pt)[#nf-icon("nf-md-checkbox_blank_outline")]],
-    text(fill: text-body, size: 13pt)[Kan ik het pad E2E uitleggen?],
+    text(fill: text-body, size: 13pt)[Can I explain the E2E path?],
   )
 ]
 
@@ -1676,32 +1676,32 @@
     columns: (1.4fr, 1fr),
     column-gutter: 1em,
     [
-      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 10pt)[DE FLOW]
+      #text(fill: accent-teal, weight: "bold", font: "JetBrains Mono", size: 12pt)[THE FLOW]
       #v(0.2em)
       #grid(
         columns: (auto, 1fr),
         column-gutter: 0.4em,
-        row-gutter: 0.15em,
-        text(fill: accent-teal, weight: "bold", size: 9pt)[1.],
-        text(fill: text-body, size: 9pt)[*Jira MCP* → story + requirements lezen],
-        text(fill: accent-teal, weight: "bold", size: 9pt)[2.],
-        text(fill: text-body, size: 9pt)[*Context geven* → tests, code/services, voorbeelden],
-        text(fill: accent-teal, weight: "bold", size: 9pt)[3.],
-        text(fill: text-body, size: 9pt)[*Extra info* → API docs, etc.],
-        text(fill: accent-teal, weight: "bold", size: 9pt)[4.],
-        text(fill: text-body, size: 9pt)[*Context7 MCP* → best practices (als nodig)],
-        text(fill: accent-teal, weight: "bold", size: 9pt)[5.],
-        text(fill: text-body, size: 9pt)[*Test scenario* → "Hoe toon ik dat dit werkt?"],
-        text(fill: accent-purple, weight: "bold", size: 9pt)[6.],
-        text(fill: text-body, size: 9pt)[*Vraag implementatie* → `uv run pytest`],
-        text(fill: accent-purple, weight: "bold", size: 9pt)[7.],
-        text(fill: text-body, size: 9pt)[*AI werkt* → code → lint → fix → test → groen ✓],
-        text(fill: accent-pink, weight: "bold", size: 9pt)[8.],
-        text(fill: text-body, size: 9pt)[*Review* → checklist doorlopen],
-        text(fill: accent-pink, weight: "bold", size: 9pt)[9.],
-        text(fill: text-body, size: 9pt)[*Commit* → met duidelijke message],
-        text(fill: accent-pink, weight: "bold", size: 9pt)[10.],
-        text(fill: text-body, size: 9pt)[*Deploy* → .env switch naar live],
+        row-gutter: 0.5em,
+        text(fill: accent-teal, weight: "bold", size: 11pt)[1.],
+        text(fill: text-body, size: 11pt)[*Jira MCP* → read story + requirements],
+        text(fill: accent-teal, weight: "bold", size: 11pt)[2.],
+        text(fill: text-body, size: 11pt)[*Give context* → tests, code/services, examples],
+        text(fill: accent-teal, weight: "bold", size: 11pt)[3.],
+        text(fill: text-body, size: 11pt)[*Extra info* → API docs, etc.],
+        text(fill: accent-teal, weight: "bold", size: 11pt)[4.],
+        text(fill: text-body, size: 11pt)[*Context7 MCP* → best practices (if needed)],
+        text(fill: accent-teal, weight: "bold", size: 11pt)[5.],
+        text(fill: text-body, size: 11pt)[*Test scenario* → "How do I show this works?"],
+        text(fill: accent-purple, weight: "bold", size: 11pt)[6.],
+        text(fill: text-body, size: 11pt)[*Request implementation* → `uv run pytest`],
+        text(fill: accent-purple, weight: "bold", size: 11pt)[7.],
+        text(fill: text-body, size: 11pt)[*AI works* → code → lint → fix → test → green ✓],
+        text(fill: accent-pink, weight: "bold", size: 11pt)[8.],
+        text(fill: text-body, size: 11pt)[*Review* → go through checklist],
+        text(fill: accent-pink, weight: "bold", size: 11pt)[9.],
+        text(fill: text-body, size: 11pt)[*Commit* → with clear message],
+        text(fill: accent-pink, weight: "bold", size: 11pt)[10.],
+        text(fill: text-body, size: 11pt)[*Deploy* → .env switch to live],
       )
     ],
     [
@@ -1713,9 +1713,9 @@
         radius: 6pt,
         width: 100%,
       )[
-        #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 10pt)[ALS HET MISGAAT]
+        #text(fill: accent-pink, weight: "bold", font: "JetBrains Mono", size: 10pt)[IF IT GOES WRONG]
         #v(0.3em)
-        #text(fill: text-body, size: 10pt)[Ga terug in chat history, probeer opnieuw met andere instructies.]
+        #text(fill: text-body, size: 10pt)[Go back in chat history, try again with different instructions.]
       ]
     ],
   )
